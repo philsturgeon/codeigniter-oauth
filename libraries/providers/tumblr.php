@@ -13,9 +13,7 @@
  * @author     Fuel Development Team
  */
 
-namespace OAuth;
-
-class Provider_Tumblr extends Provider {
+class OAuth_Provider_Tumblr extends OAuth_Provider {
 
 	public $name = 'tumblr';
 
@@ -34,7 +32,7 @@ class Provider_Tumblr extends Provider {
 		return 'http://www.tumblr.com/oauth/access_token';
 	}
 	
-	public function get_user_info(Consumer $consumer, Token $token)
+	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
 	{
 		// Create a new GET request with the required parameters
 		$request = Request::forge('resource', 'GET', 'http://api.tumblr.com/v2/user/info', array(

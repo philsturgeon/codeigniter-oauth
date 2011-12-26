@@ -1,8 +1,6 @@
 <?php
 
-namespace OAuth;
-
-class Provider_Google extends Provider {
+class OAuth_Provider_Google extends OAuth_Provider {
 
 	public $name = 'google';
 	
@@ -42,7 +40,7 @@ class Provider_Google extends Provider {
 		parent::__construct($options);
 	}
 	
-	public function get_user_info(Consumer $consumer, Token $token)
+	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
 	{
 		// Create a new GET request with the required parameters
 		$request = Request::forge('resource', 'GET', 'https://www.google.com/m8/feeds/contacts/default/full?max-results=1&alt=json', array(

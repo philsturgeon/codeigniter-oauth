@@ -1,24 +1,6 @@
 <?php
-/**
- * OAuth Twitter Provider
- *
- * Documents for implementing Twitter OAuth can be found at
- * <http://dev.twitter.com/pages/auth>.
- *
- * [!!] This class does not implement the Twitter API. It is only an
- * implementation of standard OAuth with Twitter as the service provider.
- *
- * @package    Kohana/OAuth
- * @category   Provider
- * @author     Kohana Team
- * @copyright  (c) 2010 Kohana Team
- * @license    http://kohanaframework.org/license
- * @since      3.0.7
- */
 
-namespace OAuth;
-
-class Provider_Dropbox extends Provider {
+class OAuth_Provider_Dropbox extends OAuth_Provider {
 
 	public $name = 'dropbox';
 
@@ -37,10 +19,10 @@ class Provider_Dropbox extends Provider {
 		return 'https://api.dropbox.com/0/oauth/access_token';
 	}
 	
-	public function get_user_info(Consumer $consumer, Token $token)
+	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
 	{
 		// Create a new GET request with the required parameters
-		$request = Request::forge('resource', 'GET', 'https://api.dropbox.com/0/account/info', array(
+		$request = OAuth_Request::forge('resource', 'GET', 'https://api.dropbox.com/0/account/info', array(
 			'oauth_consumer_key' => $consumer->key,
 			'oauth_token' => $token->access_token,
 		));

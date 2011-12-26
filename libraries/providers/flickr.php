@@ -37,10 +37,10 @@ class Provider_Flickr extends Provider {
 		return 'http://www.flickr.com/services/oauth/access_token';
 	}
 	
-	public function get_user_info(Consumer $consumer, Token $token)
+	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
 	{
 		// Create a new GET request with the required parameters
-		$request = Request::forge('resource', 'GET', 'http://api.flickr.com/services/rest', array(
+		$request = OAuth_Request::forge('resource', 'GET', 'http://api.flickr.com/services/rest', array(
 			'oauth_consumer_key' => $consumer->key,
 			'oauth_token' => $token->access_token,
 			'nojsoncallback' => 1,
