@@ -465,6 +465,11 @@ class OAuth_Request {
 			$options[CURLOPT_CONNECTTIMEOUT] = $this->timeout;
 		}
 
+		if (ENVIRONMENT === 'development')
+		{
+			$options[CURLOPT_SSL_VERIFYPEER] = false;
+		}
+
 		if ($this->send_header)
 		{
 			// Get the the current headers
