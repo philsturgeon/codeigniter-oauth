@@ -1,24 +1,6 @@
 <?php
-/**
- * OAuth Twitter Provider
- *
- * Documents for implementing Twitter OAuth can be found at
- * <http://dev.twitter.com/pages/auth>.
- *
- * [!!] This class does not implement the Twitter API. It is only an
- * implementation of standard OAuth with Twitter as the service provider.
- *
- * @package    Kohana/OAuth
- * @category   Provider
- * @author     Kohana Team
- * @copyright  (c) 2010 Kohana Team
- * @license    http://kohanaframework.org/license
- * @since      3.0.7
- */
 
-namespace OAuth;
-
-class Provider_Flickr extends Provider {
+class OAuth_Provider_Flickr extends OAuth_Provider {
 
 	public $name = 'flickr';
 
@@ -55,9 +37,9 @@ class Provider_Flickr extends Provider {
 
 		// Create a response from the request
 		return array(
-			'uid' => \Arr::get($response, 'user.id'),
-			'name' => \Arr::get($response, 'user.username._content'),
-			'nickname' => \Arr::get($response, 'user.username._content'),
+			'uid' => $response['user']['id'],
+			'name' => $response['user']['username']['_content'],
+			'nickname' => $response['user']['username']['_content'],,
 		);
 	}
 
