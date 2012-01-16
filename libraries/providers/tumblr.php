@@ -35,7 +35,7 @@ class OAuth_Provider_Tumblr extends OAuth_Provider {
 	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
 	{
 		// Create a new GET request with the required parameters
-		$request = Request::forge('resource', 'GET', 'http://api.tumblr.com/v2/user/info', array(
+		$request = OAuth_Request::forge('resource', 'GET', 'http://api.tumblr.com/v2/user/info', array(
 			'oauth_consumer_key' => $consumer->key,
 			'oauth_token' => $token->access_token,
 		));
