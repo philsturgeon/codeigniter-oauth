@@ -1,9 +1,10 @@
 <?php
 
-include('OAuth_Request.php');
-include('OAuth_Response.php');
-include('OAuth_Signature.php');
-include('OAuth_Token.php');
+include 'OAuth_Request.php';
+include 'OAuth_Response.php';
+include 'OAuth_Signature.php';
+include 'OAuth_Token.php';
+include 'OAuth_Token_Request.php';
 
 class OAuth {
 	

@@ -15,7 +15,7 @@ abstract class OAuth_Token {
 	{
 		$class = 'OAuth_Token_'.ucfirst($name);
 
-		include $class.'.php';
+		include_once $class.'.php';
 		
 		return new $class($options);
 	}
