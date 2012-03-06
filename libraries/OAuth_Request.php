@@ -17,8 +17,8 @@ class OAuth_Request {
 	{
 		$class = 'OAuth_Request_'.ucfirst($type);
 
-		include $class.'.php';
-		
+		include_once $class.'.php';
+
 		return new $class($method, $url, $params);
 	}
 
@@ -480,7 +480,7 @@ class OAuth_Request {
 
 			// Store the new headers
 			$options[CURLOPT_HTTPHEADER] = $headers;
-		} 
+		}
 
 		if ($this->method === 'POST')
 		{
