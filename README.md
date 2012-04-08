@@ -1,4 +1,4 @@
-# CodeIgniter OAuth
+## CodeIgniter OAuth
 
 An implementation of the [OAuth](http://oauth.net/) protocol with drivers to work with different providers such as Twitter, Google, etc.
 
@@ -6,7 +6,7 @@ This is based on the wonderful [Kohana OAuth](https://github.com/kohana/oauth) p
 
 Note that this Spark ONLY provides the authorization mechanism. You will need to implement the example code below so you can save this information to make API requests on the users behalf.
 
-## Providers
+### Providers
 
 - Dropbox
 - Flickr
@@ -15,7 +15,15 @@ Note that this Spark ONLY provides the authorization mechanism. You will need to
 - Tumblr
 - Twitter
 
-## Usage Example
+### Installation
+
+#### Install with Sparks
+
+```console
+$ php tools/spark install -v0.2.1 oauth
+```
+
+### Usage Example
 
 This example will need the user to go to a certain URL, which will support multiple providers. I like to set a controller to handle it and either have one single "session" method - or have another method for callbacks if you want to separate out the code even more.
 

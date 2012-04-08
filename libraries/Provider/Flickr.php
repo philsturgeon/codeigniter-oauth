@@ -39,8 +39,8 @@ class OAuth_Provider_Flickr extends OAuth_Provider {
 		return array(
 			'uid' => $response['user']['id'],
 			'name' => $response['user']['username']['_content'],
-			'nickname' => $response['user']['username']['_content'],,
+			'nickname' => $response['user']['username']['_content'],
 		);
 	}
 
-} // End Provider_Dropbox
+} // End Provider_Flickr

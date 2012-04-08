@@ -482,7 +482,7 @@ class OAuth_Request {
 
 			// Store the new headers
 			$options[CURLOPT_HTTPHEADER] = $headers;
-		} 
+		}
 
 		if ($this->method === 'POST')
 		{
