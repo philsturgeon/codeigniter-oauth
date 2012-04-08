@@ -1,4 +1,13 @@
 <?php
+/**
+ * OAuth Provider
+ *
+ * @package    CodeIgniter/OAuth
+ * @category   Provider
+ * @author     Phil Sturgeon
+ * @copyright  (c) 2012 HappyNinjas Ltd
+ * @license    http://philsturgeon.co.uk/code/dbad-license
+ */
 
 abstract class OAuth_Provider {
 
@@ -170,7 +179,7 @@ abstract class OAuth_Provider {
 			$request->params($params);
 		}
 
-		redirect($request->as_url());
+		return $request->as_url();
 	}
 
 	/**
@@ -208,7 +217,7 @@ abstract class OAuth_Provider {
 		return OAuth_Token::forge('access', array(
 			'access_token'  => $response->param('oauth_token'),
 			'secret' => $response->param('oauth_token_secret'),
-			'uid' => $response->param($this->uid_key) ?: get_instance()->input->get_post($this->uid_key),
+			'uid' => $response->param($this->uid_key) ? $response->param($this->uid_key) : get_instance()->input->get_post($this->uid_key),
 		));
 	}
 

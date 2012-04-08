@@ -1,10 +1,10 @@
 <?php
 
-include 'OAuth_Request.php';
-include 'OAuth_Response.php';
-include 'OAuth_Signature.php';
-include 'OAuth_Token.php';
-include 'OAuth_Token_Request.php';
+include 'Request.php';
+include 'Response.php';
+include 'Signature.php';
+include 'Token.php';
+include 'Token/Request.php';
 
 class OAuth {
 	
@@ -15,8 +15,8 @@ class OAuth {
 	
 	public static function provider($name, array $options = NULL)
 	{
-		include_once 'OAuth_Provider.php';
-		include_once 'providers/'.strtolower($name).'.php';
+		include_once 'Provider.php';
+		include_once 'Provider/'.strtolower($name).'.php';
 		
 		$class = 'OAuth_Provider_'.ucfirst($name);
 
@@ -25,7 +25,7 @@ class OAuth {
 	
 	public static function consumer(array $options = NULL)
 	{
-		include_once 'OAuth_Consumer.php';
+		include_once 'Consumer.php';
 
 		return new OAuth_Consumer($options);
 	}

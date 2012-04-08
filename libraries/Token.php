@@ -13,10 +13,12 @@ abstract class OAuth_Token {
 	 */
 	public static function forge($name, array $options = NULL)
 	{
-		$class = 'OAuth_Token_'.ucfirst($name);
+		$name = strtolower(ucfirst($name));
 
-		include_once $class.'.php';
-		
+		$class = 'OAuth_Token_'.$name;
+
+		class_exists($class) or include 'Token/'.$name.'.php';
+
 		return new $class($options);
 	}
 

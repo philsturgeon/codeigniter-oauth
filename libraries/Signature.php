@@ -13,10 +13,12 @@ abstract class OAuth_Signature {
 	 */
 	public static function forge($name, array $options = NULL)
 	{
-		// Create the class name as a base of this class
-		$class = 'OAuth_Signature_'.str_replace('-', '_', $name);
+		$name = str_replace('-', '_', $name);
 
-		include $class.'.php';
+		// Create the class name as a base of this class
+		$class = 'OAuth_Signature_'.$name;
+
+		class_exists($class) or include 'Signature/'.ucfirst($name).'.php';
 
 		return new $class($options);
 	}

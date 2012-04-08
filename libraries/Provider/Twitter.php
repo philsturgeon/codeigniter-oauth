@@ -39,7 +39,7 @@ class OAuth_Provider_Twitter extends OAuth_Provider {
 		return array(
 			'uid' => $token->uid,
 			'nickname' => $user->screen_name,
-			'name' => $user->name ?: $user->screen_name,
+			'name' => $user->name ? $user->name : $user->screen_name,
 			'location' => $user->location,
 			'image' => $user->profile_image_url,
 			'description' => $user->description,
