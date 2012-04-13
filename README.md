@@ -63,10 +63,13 @@ class Auth extends CI_Controller
 			// Store the token
 			$this->session->set_userdata('oauth_token', base64_encode(serialize($token)));
 
-			// Redirect to the twitter login page
-			$provider->authorize($token, array(
+			// Get the URL to the twitter login page
+			$url = $provider->authorize($token, array(
 				'oauth_callback' => $callback,
 			));
+
+			// Send the user off to login
+			redirect($url);
 		}
 		else
 		{
