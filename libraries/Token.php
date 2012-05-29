@@ -13,7 +13,7 @@ abstract class OAuth_Token {
 	 */
 	public static function forge($name, array $options = NULL)
 	{
-		$name = strtolower(ucfirst($name));
+		$name = ucfirst(strtolower($name));
 
 		$class = 'OAuth_Token_'.$name;
 
@@ -63,7 +63,7 @@ abstract class OAuth_Token {
 		$this->access_token = $options['access_token'];
 
 		$this->secret = $options['secret'];
-		
+
 		// If we have a uid lets use it
 		isset($options['uid']) and $this->uid = $options['uid'];
 	}
@@ -81,7 +81,7 @@ abstract class OAuth_Token {
 	{
 		return isset($this->$key) ? $this->$key : null;
 	}
-	
+
 	/**
 	 * Return a boolean if the property is set
 	 *
