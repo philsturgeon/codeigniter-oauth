@@ -5,6 +5,7 @@ include 'Response.php';
 include 'Signature.php';
 include 'Token.php';
 include 'Token/Request.php';
+include 'Format.php';
 
 class OAuth {
 
