@@ -20,7 +20,7 @@ Note that this Spark ONLY provides the authorization mechanism. You will need to
 #### Install with Sparks
 
 ```console
-$ php tools/spark install -v0.3.0 oauth
+$ php tools/spark install -v0.3.1 oauth
 ```
 
 ### Usage Example
@@ -38,7 +38,7 @@ class Auth extends CI_Controller
 	{
 		$this->load->helper('url');
 		
-		$this->load->spark('oauth/0.3.0');
+		$this->load->spark('oauth/0.3.1');
 	
 		// Create an consumer from the config
 		$consumer = $this->oauth->consumer(array(
