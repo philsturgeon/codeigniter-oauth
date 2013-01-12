@@ -50,7 +50,7 @@ class Auth extends CI_Controller
 		$provider = $this->oauth->provider($provider);
 		
 		// Create the URL to return the user to
-		$callback = site_url('account/services/callback/'.$provider->name);
+		$callback = site_url('auth/oauth/'.$provider->name);
 
 		if ( ! $this->input->get_post('oauth_token'))
 		{
