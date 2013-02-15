@@ -3,6 +3,7 @@
 class OAuth_Provider_Flickr extends OAuth_Provider {
 
 	public $name = 'flickr';
+	public $uid_key = 'user_nsid';
 
 	public function url_request_token()
 	{
@@ -27,19 +28,27 @@ class OAuth_Provider_Flickr extends OAuth_Provider {
 			'oauth_token' => $token->access_token,
 			'nojsoncallback' => 1,
 			'format' => 'json',
-			'method' => 'flickr.test.login',
+			'user_id' => $token->uid,
+			'method' => 'flickr.people.getInfo',
 		));
 
 		// Sign the request using the consumer and token
 		$request->sign($this->signature, $consumer, $token);
 
 		$response = json_decode($request->execute(), true);
+		$user = $response['person'];
 
 		// Create a response from the request
 		return array(
-			'uid' => $response['user']['id'],
-			'name' => $response['user']['username']['_content'],
-			'nickname' => $response['user']['username']['_content'],
+			'uid' => $user['nsid'],
+			'name' => isset($user['realname']['_content']) ? $user['realname']['_content'] : $user['username']['_content'],
+			'nickname' => $user['username']['_content'],
+			'location' => isset($user['location']['_content']) ? $user['location']['_content'] : NULL,
+			'image' => $user['iconserver'] ? "http://farm{$user['iconfarm']}.staticflickr.com/{$user['iconserver']}/buddyicons/{$user['nsid']}.jpg" : NULL,
+			'urls' => array(
+				'photos' => $user['photosurl']['_content'],
+				'profile' => $user['profileurl']['_content'],
+			),
 		);
 	}
 
