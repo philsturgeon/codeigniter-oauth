@@ -13,7 +13,7 @@ class OAuth_Provider_Twitter extends OAuth_Provider {
 
 	public function url_authorize()
 	{
-		return 'https://api.twitter.com/oauth/authorize';
+		return 'https://api.twitter.com/oauth/authenticate';
 	}
 
 	public function url_access_token()
