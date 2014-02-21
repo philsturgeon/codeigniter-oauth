@@ -2,7 +2,7 @@
 
 ## !!! DEPRECATED !!!
 **This package is no longer actively maintained. If somebody sends in a pull request with some major security bug 
-then I'll merge it, but otherwise nothing will be done. Use [thephpleague/oauth1-client](https://github.com/thephpleague/oauth-client) instead.**
+then I'll merge it, but otherwise nothing will be done. Use [thephpleague/oauth1-client](https://github.com/thephpleague/oauth1-client) instead.**
 
 An implementation of the [OAuth](http://oauth.net/) protocol with drivers to work with different providers such as Twitter, Google, etc.
 
