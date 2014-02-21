@@ -1,5 +1,9 @@
 ## CodeIgniter OAuth
 
+## !!! DEPRECATED !!!
+**This package is no longer actively maintained. If somebody sends in a pull request with some major security bug 
+then I'll merge it, but otherwise nothing will be done. Use [thephpleague/oauth1-client](https://github.com/thephpleague/oauth-client) instead.**
+
 An implementation of the [OAuth](http://oauth.net/) protocol with drivers to work with different providers such as Twitter, Google, etc.
 
 This is based on the wonderful [Kohana OAuth](https://github.com/kohana/oauth) package but has been adapted to work with a wider range of providers.
