@@ -41,7 +41,9 @@ class OAuth_Provider_Linkedin extends OAuth_Provider {
 		// Sign the request using the consumer and token
 		$request->sign($this->signature, $consumer, $token);
 
-		$user = OAuth_Format::factory($request->execute(), 'xml')->to_array();
+		$ci = get_instance();
+ 		$ci->load->library('format');
+ 		$user = $ci->format->factory($request->execute(), 'xml')->to_array();
 		
 		// Create a response from the request
 		return array(
